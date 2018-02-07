@@ -1,15 +1,1 @@
-   [{      
-     "nom" : "Eddy Martin",
-     "telephone" : "514-123-9834",
-     "id": 1    
-   },
-   {  
-     "nom" : "Claude Fortin",
-     "telephone" : "514-111-9114",
-     "id": 2   
-   },
-   { 
-      "nom" : "Luc Marcil",
-     "telephone" : "514-222-9233",
-     "id": 3    
-   }]
+[{"nom":"Eddy Martin","telephone":"514-123-9834","id":1},{"nom":"Claude Fortin","telephone":"514-111-9114","id":2},{"nom":"Luc Marcil","telephone":"514-222-9233","id":3},{"prenom":"qwre","nom":"we","telephone":"5148855699","email":"vdgha@bjckds"},{"prenom":"qwre","nom":"we","telephone":"5148855699","email":"vdgha@bjckds"},{"prenom":"qwre","nom":"we","telephone":"5148855699","email":"vdgha@bjckds"}]

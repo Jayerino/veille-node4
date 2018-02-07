@@ -28,26 +28,36 @@ app.get('/traiter_get', (req, res) => {
 
  fs.readFile(__dirname + '/public/data/membres.txt', 'utf-8', (err, data) => {
  	if (err) throw err;
+ 	//lecture
  	let liste = JSON.parse(data);
-
+ 	//ajout de lareponse dans le tableau
  	liste.push(reponse);
- 	fs.writeFile(__dirname + '/public/data/membres.txt', 'utf-8', JSON.stringify(liste), (err) => {
+ 	//ecriture
+ 	fs.writeFile(__dirname + '/public/data/membres.txt', JSON.stringify(liste), 'utf-8', (err) => {
  		if (err) throw err;
 
  		res.end(JSON.stringify(liste));
  	})
  })
 
-
-
-console.log(reponse);
- res.end(JSON.stringify(rliste));
 })
 ///////////////////////////////////////////// route : membres
 
 app.get("/membres", (req,res) => 
  {
- 	
+ 	 fs.readFile(__dirname + '/public/data/membres.txt', 'utf-8', (err, data) => {
+ 	 	if (err) throw err;
+ 	 	let html = "<!DOCTYPE html>";
+	    	html+= "<html>";
+	    	html+= "<head>";
+	    	html+= "<style></style>";
+	    	html+= "</head>";
+	    	html+="<table>"
+	    	html+="<thead><tr><th>Les provinces</th></tr></thead>";
+	    	html+="<tbody>";
+
+ 	 	res.end(html);
+ 	 })
  })
 
 const server = app.listen(8081, function () {
