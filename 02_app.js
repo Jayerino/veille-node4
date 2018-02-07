@@ -53,8 +53,19 @@ app.get("/membres", (req,res) =>
 	    	html+= "<style></style>";
 	    	html+= "</head>";
 	    	html+="<table>"
-	    	html+="<thead><tr><th>Les provinces</th></tr></thead>";
+	    	html+="<thead><tr><th>Les membres</th></tr></thead>";
 	    	html+="<tbody>";
+
+	    	let liste = JSON.parse(data);
+
+	    	for (let personne of liste) {
+	    		html+= "<tr>";
+       			html += "<td>";
+        		html += personne.nom;
+        		html += "</td>";
+	    	}
+
+	    	html += "</tbody></table></body></html>";
 
  	 	res.end(html);
  	 })
