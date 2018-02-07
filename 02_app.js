@@ -2,9 +2,9 @@ const express = require('express');
 const app = express();
 app.use(express.static('public'));
 /////////////////////////////////// Route /html/01_form.htm
-app.get('/html/01_form.htm', function (req, res) {
+app.get('/formulaire', function (req, res) {
  console.log(__dirname);
- res.sendFile( __dirname + "/" + "01_form.htm" );
+ res.sendFile( __dirname + "/public/html" + "01_form.htm" );
 })
 
 app.get('/', (req, res) => {
@@ -12,15 +12,17 @@ app.get('/', (req, res) => {
  res.end('<h1>Accueil</h1>')
 })
 
-app.get('/traiter_get', function (req, res) {
+app.get('/traiter_get', (req, res) => {
  // Preparer l'output en format JSON
 
 console.log('la route /traiter_get')
 
 // on utilise l'objet req.query pour récupérer les données GET
- reponse = {
+ let reponse = {
  prenom:req.query.prenom,
  nom:req.query.nom
+ telephone.req.query.telephone,
+ email.req.query.email
  };
 console.log(reponse);
  res.end(JSON.stringify(reponse));
@@ -29,7 +31,7 @@ console.log(reponse);
 
 app.get("membres", (req,res) => 
  {
- 	
+
  })
 
 const server = app.listen(8081, function () {
