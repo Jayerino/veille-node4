@@ -1,4 +1,4 @@
-   {      
+   [{      
      "nom" : "Eddy Martin",
      "telephone" : "514-123-9834",
      "id": 1    
@@ -12,4 +12,4 @@
       "nom" : "Luc Marcil",
      "telephone" : "514-222-9233",
      "id": 3    
-   }
+   }]

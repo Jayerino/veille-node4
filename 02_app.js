@@ -1,4 +1,5 @@
 const express = require('express');
+const fs = require('fs');
 const app = express();
 app.use(express.static('public'));
 /////////////////////////////////// Route /html/01_form.htm
@@ -15,23 +16,38 @@ app.get('/', (req, res) => {
 app.get('/traiter_get', (req, res) => {
  // Preparer l'output en format JSON
 
-console.log('la route /traiter_get')
+//console.log('la route /traiter_get')
 
 // on utilise l'objet req.query pour récupérer les données GET
  let reponse = {
  prenom:req.query.prenom,
- nom:req.query.nom
- telephone.req.query.telephone,
- email.req.query.email
+ nom:req.query.nom,
+ telephone:req.query.telephone,
+ email:req.query.email
  };
+
+ fs.readFile(__dirname + '/public/data/membres.txt', 'utf-8', (err, data) => {
+ 	if (err) throw err;
+ 	let liste = JSON.parse(data);
+
+ 	liste.push(reponse);
+ 	fs.writeFile(__dirname + '/public/data/membres.txt', 'utf-8', JSON.stringify(liste), (err) => {
+ 		if (err) throw err;
+
+ 		res.end(JSON.stringify(liste));
+ 	})
+ })
+
+
+
 console.log(reponse);
  res.end(JSON.stringify(reponse));
 })
 ///////////////////////////////////////////// route : membres
 
-app.get("membres", (req,res) => 
+app.get("/membres", (req,res) => 
  {
-
+ 	
  })
 
 const server = app.listen(8081, function () {
