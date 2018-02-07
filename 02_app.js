@@ -25,10 +25,16 @@ console.log('la route /traiter_get')
 console.log(reponse);
  res.end(JSON.stringify(reponse));
 })
+///////////////////////////////////////////// route : membres
 
-var server = app.listen(8081, function () {
- var host = server.address().address
- var port = server.address().port
+app.get("membres", (req,res) => 
+ {
+ 	
+ })
+
+const server = app.listen(8081, function () {
+ let host = server.address().address
+ let port = server.address().port
  
  console.log("Exemple l'application écoute sur http://%s:%s", host, port)
 
